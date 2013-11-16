@@ -10,58 +10,58 @@
 
 zenity --info --title "Script Web Development" --text "Este é um script simples para instalação de ferramentas úteis para Desenvolvimento Web e do ambiente do Ubuntu. \n\nCriado por: Willian Justen de Vasconcellos"
 
-resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --checklist  --column "Instalar" --column "Id" --column "Pacote" FALSE "1" "Restricted-Extras (Codecs de áudio e vídeo, plugin flash, java entre outros)" FALSE "2" "Gimp (Editor de Imagens)" FALSE "3" "Inkscape (Editor de Vetores)" FALSE "4" "Imagemagick (Editor de Imagens via Terminal)" FALSE "5" "Sublime Text 2" FALSE "6" "Sublime Text 3" FALSE "7" "Brackets" FALSE "8" "Dropbox" FALSE "9" "Mysql Workbench" FALSE "10" "Lamp+phpmyadmin" FALSE "11" "Google Chromium" FALSE "12" "Google Chrome" FALSE "13" "Git e Gitk" FALSE "14" "Filezilla" FALSE "15" "NodeJS" FALSE "16" "Yo / GruntJs / Bower (Requer NodeJS)" --separator=":" --width=750 --height=600)
+resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --checklist  --column "Instalar" --column "Id" --column "Pacote" FALSE "a" "Restricted-Extras (Codecs de áudio e vídeo, plugin flash, java entre outros)" FALSE "b" "Gimp (Editor de Imagens)" FALSE "c" "Inkscape (Editor de Vetores)" FALSE "d" "Imagemagick (Editor de Imagens via Terminal)" FALSE "e" "Sublime Text 2" FALSE "f" "Sublime Text 3" FALSE "g" "Brackets" FALSE "h" "Dropbox" FALSE "i" "Mysql Workbench" FALSE "j" "Lamp+phpmyadmin" FALSE "k" "Google Chromium" FALSE "l" "Google Chrome" FALSE "m" "Git e Gitk" FALSE "n" "Filezilla" FALSE "o" "NodeJS" FALSE "p" "Yo / GruntJs / Bower (Requer NodeJS)" --separator=":" --width=750 --height=600)
 
 
-if [[ $resposta == "1" ]]; then
+if [[ $resposta =~ "a" ]]; then
  sudo apt-get -y install ubuntu-restricted-extras
 fi
 
 
-if [[ $resposta == "2" ]]; then
+if [[ $resposta =~ "b" ]]; then
  sudo apt-get -y install gimp
 fi
 
-if [[ $resposta == "3" ]]; then
+if [[ $resposta =~ "c" ]]; then
  sudo apt-get -y install inkscape
 fi
 
-if [[ $resposta == "4" ]]; then
+if [[ $resposta =~ "d" ]]; then
  sudo apt-get -y install imagemagick
 fi
 
-if [[ $resposta == "5" ]]; then
+if [[ $resposta =~ "e" ]]; then
   # adicionando repositório
  sudo add-apt-repository ppa:webupd8team/sublime-text-2
  sudo apt-get update
  sudo apt-get -y install sublime-text
 fi
 
-if [[ $resposta == "6" ]]; then
+if [[ $resposta =~ "f" ]]; then
   # adicionando repositório
   sudo add-apt-repository ppa:webupd8team/sublime-text-3
   sudo apt-get update 
   sudo apt-get -y install sublime-text-installer
 fi
 
-if [[ $resposta == "7" ]]; then
+if [[ $resposta =~ "g" ]]; then
   # adicionando repositório
 	sudo add-apt-repository ppa:webupd8team/brackets
 	sudo apt-get update
 	sudo apt-get -y install brackets
 fi
 
-if [[ $resposta == "8" ]]; then
+if [[ $resposta =~ "h" ]]; then
  sudo apt-get -y install nautilus-dropbox
  #instalando indicador da barra de tarefas
  sudo apt-get -y install libappindicator1
 fi   
 
-if [[ $resposta == "9" ]]; then
+if [[ $resposta =~ "i" ]]; then
  sudo apt-get -y install mysql-workbench
 fi   
 
-if [[ $resposta == "10" ]]; then
+if [[ $resposta =~ "j" ]]; then
   # instalando lamp e phpmyadmin
   sudo apt-get -y install lamp-server^
   sudo apt-get -y install phpmyadmin
@@ -71,11 +71,11 @@ if [[ $resposta == "10" ]]; then
   sudo chmod -R 777 /var/www   
 fi   
 
-if [[ $resposta == "11" ]]; then
+if [[ $resposta =~ "k" ]]; then
  sudo apt-get -y install chromium-browser
 fi   
 
-if [[ $resposta == "12" ]]; then
+if [[ $resposta =~ "l" ]]; then
   # baixando a chave do chrome para adicionar nas chaves de repositórios
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   # adicionando na lista de fontes
@@ -84,15 +84,15 @@ if [[ $resposta == "12" ]]; then
   sudo apt-get install google-chrome-stable
 fi   
 
-if [[ $resposta == "13" ]]; then
+if [[ $resposta =~ "m" ]]; then
   sudo apt-get install git-core gitk
 fi
 
-if [[ $resposta == "14" ]]; then
+if [[ $resposta =~ "n" ]]; then
   sudo apt-get install filezilla
 fi
 
-if [[ $resposta == "15" ]]; then
+if [[ $resposta =~ "o" ]]; then
   # instalando dependências
   sudo apt-get install -y python-software-properties python g++ make
   # adicionando repositório
@@ -101,7 +101,7 @@ if [[ $resposta == "15" ]]; then
   sudo apt-get install -y nodejs
 fi
 
-if [[ $resposta == "14" ]]; then
+if [[ $resposta =~ "p" ]]; then
   sudo npm install -g yo grunt-cli bower
 fi
 
