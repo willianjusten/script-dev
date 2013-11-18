@@ -39,14 +39,14 @@ fi
 
 if [[ $resposta =~ "f" ]]; then
   # adicionando repositório
-  sudo add-apt-repository ppa:webupd8team/sublime-text-3
+  sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
   sudo apt-get update 
   sudo apt-get -y install sublime-text-installer
 fi
 
 if [[ $resposta =~ "g" ]]; then
   # adicionando repositório
-	sudo add-apt-repository ppa:webupd8team/brackets
+	sudo add-apt-repository -y ppa:webupd8team/brackets
 	sudo apt-get update
 	sudo apt-get -y install brackets
 fi
@@ -81,15 +81,15 @@ if [[ $resposta =~ "l" ]]; then
   # adicionando na lista de fontes
   sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
   sudo apt-get update
-  sudo apt-get install google-chrome-stable
+  sudo apt-get install -y google-chrome-stable
 fi   
 
 if [[ $resposta =~ "m" ]]; then
-  sudo apt-get install git-core gitk
+  sudo apt-get install -y git-core gitk
 fi
 
 if [[ $resposta =~ "n" ]]; then
-  sudo apt-get install filezilla
+  sudo apt-get install -y filezilla
 fi
 
 if [[ $resposta =~ "o" ]]; then
@@ -104,5 +104,8 @@ fi
 if [[ $resposta =~ "p" ]]; then
   sudo npm install -g yo grunt-cli bower
 fi
+
+# removendo os pacotes não necessários
+sudo apt-get autoremove
 
 zenity --info --title "Instalação Finalizada" --text "Instalação Finalizada com sucesso!"
