@@ -14,27 +14,27 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
 
 
 if [[ $resposta =~ "a" ]]; then
- sudo apt-get -y install ubuntu-restricted-extras
+   sudo apt-get -y install ubuntu-restricted-extras
 fi
 
 
 if [[ $resposta =~ "b" ]]; then
- sudo apt-get -y install gimp
+   sudo apt-get -y install gimp
 fi
 
 if [[ $resposta =~ "c" ]]; then
- sudo apt-get -y install inkscape
+   sudo apt-get -y install inkscape
 fi
 
 if [[ $resposta =~ "d" ]]; then
- sudo apt-get -y install imagemagick
+   sudo apt-get -y install imagemagick
 fi
 
 if [[ $resposta =~ "e" ]]; then
   # adicionando repositório
- sudo add-apt-repository ppa:webupd8team/sublime-text-2
- sudo apt-get update
- sudo apt-get -y install sublime-text
+  sudo add-apt-repository ppa:webupd8team/sublime-text-2
+  sudo apt-get update
+  sudo apt-get -y install sublime-text
 fi
 
 if [[ $resposta =~ "f" ]]; then
@@ -46,19 +46,19 @@ fi
 
 if [[ $resposta =~ "g" ]]; then
   # adicionando repositório
-	sudo add-apt-repository -y ppa:webupd8team/brackets
-	sudo apt-get update
-	sudo apt-get -y install brackets
+  sudo add-apt-repository -y ppa:webupd8team/brackets
+  sudo apt-get update
+  sudo apt-get -y install brackets
 fi
 
 if [[ $resposta =~ "h" ]]; then
- sudo apt-get -y install nautilus-dropbox
+   sudo apt-get -y install nautilus-dropbox
  #instalando indicador da barra de tarefas
  sudo apt-get -y install libappindicator1
 fi   
 
 if [[ $resposta =~ "i" ]]; then
- sudo apt-get -y install mysql-workbench
+   sudo apt-get -y install mysql-workbench
 fi   
 
 if [[ $resposta =~ "j" ]]; then
@@ -72,7 +72,7 @@ if [[ $resposta =~ "j" ]]; then
 fi   
 
 if [[ $resposta =~ "k" ]]; then
- sudo apt-get -y install chromium-browser
+   sudo apt-get -y install chromium-browser
 fi   
 
 if [[ $resposta =~ "l" ]]; then
@@ -99,6 +99,9 @@ if [[ $resposta =~ "o" ]]; then
   sudo add-apt-repository -y ppa:chris-lea/node.js
   sudo apt-get update
   sudo apt-get install -y nodejs
+  # correção para não precisar rodar em sudo
+  echo prefix = ~/.node >> ~/.npmrc
+  echo 'export PATH=$HOME/.node/bin:$PATH' >> ~/.bashrc 
 fi
 
 if [[ $resposta =~ "p" ]]; then
