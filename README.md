@@ -27,7 +27,7 @@
 Baixe o script, vá até a pasta onde se encontra e dê as permissões para ele.
 
 ```sh
-chmod 777 script script_dev.sh
+chmod +x script_dev.sh
 ```
 
 Após isso, execute o arquivo:
