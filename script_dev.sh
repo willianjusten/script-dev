@@ -28,7 +28,8 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "o" "NodeJS"\
     FALSE "rvm" "RVM e Ruby"\
     FALSE "p" "Yo / GruntJs / Bower (Requer NodeJS)"\
-    FALSE "env" "Virtualenv e Virtualenvwrapper"
+    FALSE "env" "Virtualenv e Virtualenvwrapper"\
+    FALSE "sptf" "Spotfy"\
     --separator=":" --width=750 --height=600)
 
 
@@ -136,6 +137,13 @@ if [[ $resposta =~ "env" ]]; then
   sudo apt-get install -y python-pip
   sudo pip install virtualenv
   sudo pip install virtualenvwrapper
+fi
+
+if [[ $resposta =~ "sptf" ]]; then
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
+  echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+  sudo apt-get update
+  sudo apt-get install -y spotify-client
 fi
 
 # removendo os pacotes não necessários
