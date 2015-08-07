@@ -6,10 +6,10 @@
 ## Lista de aplicativos:
 
   1. Restricted-Extras (Codecs de áudio e vídeo)
-  1. Gimp 
+  1. Gimp
   1. Inkscape
   1. Imagemagick
-  1. Sublime Text 2
+  1. Terminator
   1. Sublime Text 3
   1. Brackets
   1. Dropbox
@@ -20,7 +20,10 @@
   1. Git e Gitk
   1. Filezilla
   1. NodeJS
+  1. RVM e Ruby
   1. Yo / GruntJS / Bower (Requer NodeJS)
+  1. Pip, Virtualenv e Virtualenvwrapper
+  1. Spotify
 
 ## Instalação
 
