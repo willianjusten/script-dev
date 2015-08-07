@@ -27,9 +27,9 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "n" "Filezilla"\
     FALSE "o" "NodeJS"\
     FALSE "p" "Yo / GruntJs / Bower (Requer NodeJS)"\
-    FALSE "q" "Virtualenv e Virtualenvwrapper"\
+    FALSE "q" "Pip, Virtualenv e Virtualenvwrapper"\
     FALSE "r" "RVM e Ruby"\
-    FALSE "s" "Spotfy"\
+    FALSE "s" "Spotify"\
     --separator=":" --width=750 --height=700)
 
 

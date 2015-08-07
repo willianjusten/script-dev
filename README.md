@@ -20,9 +20,9 @@
   1. Git e Gitk
   1. Filezilla
   1. NodeJS
-  1. RVM e Ruby
   1. Yo / GruntJS / Bower (Requer NodeJS)
   1. Pip, Virtualenv e Virtualenvwrapper
+  1. RVM e Ruby
   1. Spotify
 
 ## Instalação
