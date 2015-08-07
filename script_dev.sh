@@ -15,7 +15,7 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "b" "Gimp (Editor de Imagens)"\
     FALSE "c" "Inkscape (Editor de Vetores)"\
     FALSE "d" "Imagemagick (Editor de Imagens via Terminal)"\
-    FALSE "terminator" "Terminator"\
+    FALSE "e" "Terminator"\
     FALSE "f" "Sublime Text 3"\
     FALSE "g" "Brackets"\
     FALSE "h" "Dropbox"\
@@ -26,11 +26,11 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "m" "Git e Gitk"\
     FALSE "n" "Filezilla"\
     FALSE "o" "NodeJS"\
-    FALSE "rvm" "RVM e Ruby"\
     FALSE "p" "Yo / GruntJs / Bower (Requer NodeJS)"\
-    FALSE "env" "Virtualenv e Virtualenvwrapper"\
-    FALSE "sptf" "Spotfy"\
-    --separator=":" --width=750 --height=600)
+    FALSE "q" "Virtualenv e Virtualenvwrapper"\
+    FALSE "r" "RVM e Ruby"\
+    FALSE "s" "Spotfy"\
+    --separator=":" --width=750 --height=700)
 
 
 if [[ $resposta =~ "a" ]]; then
@@ -50,7 +50,7 @@ if [[ $resposta =~ "d" ]]; then
    sudo apt-get -y install imagemagick
 fi
 
-if [[ $resposta =~ "terminator" ]]; then
+if [[ $resposta =~ "e" ]]; then
     sudo add-apt-repository -y ppa:gnome-terminator
     sudo apt-get update
     sudo apt-get install terminator
@@ -123,7 +123,7 @@ if [[ $resposta =~ "o" ]]; then
   echo 'export PATH=$HOME/.node/bin:$PATH' >> ~/.bashrc
 fi
 
-if [[ $resposta =~ "rvm" ]]; then
+if [[ $resposta =~ "r" ]]; then
     sudo apt-get install -y curl
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
     curl -sSL https://get.rvm.io | bash -s stable
@@ -133,13 +133,13 @@ if [[ $resposta =~ "p" ]]; then
   sudo npm install -g yo grunt-cli bower
 fi
 
-if [[ $resposta =~ "env" ]]; then
+if [[ $resposta =~ "q" ]]; then
   sudo apt-get install -y python-pip
   sudo pip install virtualenv
   sudo pip install virtualenvwrapper
 fi
 
-if [[ $resposta =~ "sptf" ]]; then
+if [[ $resposta =~ "s" ]]; then
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
   echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
   sudo apt-get update
