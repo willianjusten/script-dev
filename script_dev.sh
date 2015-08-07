@@ -26,6 +26,7 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "m" "Git e Gitk"\
     FALSE "n" "Filezilla"\
     FALSE "o" "NodeJS"\
+    FALSE "rvm" "RVM e Ruby"\
     FALSE "p" "Yo / GruntJs / Bower (Requer NodeJS)" --separator=":" --width=750 --height=600)
 
 
@@ -121,6 +122,12 @@ fi
 
 if [[ $resposta =~ "p" ]]; then
   sudo npm install -g yo grunt-cli bower
+fi
+
+if [[ $resposta =~ "rvm" ]]; then
+    sudo apt-get install -y curl
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    curl -sSL https://get.rvm.io | bash -s stable
 fi
 
 # removendo os pacotes não necessários
