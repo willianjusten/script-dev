@@ -27,7 +27,9 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "n" "Filezilla"\
     FALSE "o" "NodeJS"\
     FALSE "rvm" "RVM e Ruby"\
-    FALSE "p" "Yo / GruntJs / Bower (Requer NodeJS)" --separator=":" --width=750 --height=600)
+    FALSE "p" "Yo / GruntJs / Bower (Requer NodeJS)"\
+    FALSE "env" "Virtualenv e Virtualenvwrapper"
+    --separator=":" --width=750 --height=600)
 
 
 if [[ $resposta =~ "a" ]]; then
@@ -120,14 +122,20 @@ if [[ $resposta =~ "o" ]]; then
   echo 'export PATH=$HOME/.node/bin:$PATH' >> ~/.bashrc
 fi
 
-if [[ $resposta =~ "p" ]]; then
-  sudo npm install -g yo grunt-cli bower
-fi
-
 if [[ $resposta =~ "rvm" ]]; then
     sudo apt-get install -y curl
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
     curl -sSL https://get.rvm.io | bash -s stable
+fi
+
+if [[ $resposta =~ "p" ]]; then
+  sudo npm install -g yo grunt-cli bower
+fi
+
+if [[ $resposta =~ "env" ]]; then
+  sudo apt-get install -y python-pip
+  sudo pip install virtualenv
+  sudo pip install virtualenvwrapper
 fi
 
 # removendo os pacotes não necessários
