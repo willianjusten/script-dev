@@ -18,18 +18,17 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "e" "Terminator"\
     FALSE "f" "Sublime Text 3"\
     FALSE "g" "Brackets"\
-    FALSE "h" "Dropbox"\
-    FALSE "i" "Mysql Workbench"\
-    FALSE "j" "Lamp+phpmyadmin"\
-    FALSE "k" "Google Chromium"\
-    FALSE "l" "Google Chrome"\
-    FALSE "m" "Git e Gitk"\
-    FALSE "n" "Filezilla"\
-    FALSE "o" "NodeJS"\
-    FALSE "p" "Yo / GruntJs / Bower (Requer NodeJS)"\
+    FALSE "h" "Mysql Workbench"\
+    FALSE "i" "Lamp+phpmyadmin"\
+    FALSE "j" "Google Chromium"\
+    FALSE "k" "Google Chrome"\
+    FALSE "l" "Git e Gitk"\
+    FALSE "m" "Filezilla"\
+    FALSE "n" "NodeJS"\
+    FALSE "o" "Yo / GruntJs / Bower (Requer NodeJS)"\
+    FALSE "p" "RVM e Ruby"\
     FALSE "q" "Pip, Virtualenv e Virtualenvwrapper"\
-    FALSE "r" "RVM e Ruby"\
-    FALSE "s" "Spotify"\
+    FALSE "r" "Spotify"\
     --separator=":" --width=750 --height=700)
 
 
@@ -71,16 +70,10 @@ if [[ $resposta =~ "g" ]]; then
 fi
 
 if [[ $resposta =~ "h" ]]; then
-   sudo apt-get -y install nautilus-dropbox
- #instalando indicador da barra de tarefas
- sudo apt-get -y install libappindicator1
-fi
-
-if [[ $resposta =~ "i" ]]; then
    sudo apt-get -y install mysql-workbench
 fi
 
-if [[ $resposta =~ "j" ]]; then
+if [[ $resposta =~ "i" ]]; then
   # instalando lamp e phpmyadmin
   sudo apt-get -y install lamp-server^
   sudo apt-get -y install phpmyadmin
@@ -90,11 +83,11 @@ if [[ $resposta =~ "j" ]]; then
   sudo chmod -R 777 /var/www
 fi
 
-if [[ $resposta =~ "k" ]]; then
+if [[ $resposta =~ "j" ]]; then
    sudo apt-get -y install chromium-browser
 fi
 
-if [[ $resposta =~ "l" ]]; then
+if [[ $resposta =~ "k" ]]; then
   # baixando a chave do chrome para adicionar nas chaves de repositórios
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   # adicionando na lista de fontes
@@ -103,15 +96,15 @@ if [[ $resposta =~ "l" ]]; then
   sudo apt-get install -y google-chrome-stable
 fi
 
-if [[ $resposta =~ "m" ]]; then
+if [[ $resposta =~ "l" ]]; then
   sudo apt-get install -y git-core gitk
 fi
 
-if [[ $resposta =~ "n" ]]; then
+if [[ $resposta =~ "m" ]]; then
   sudo apt-get install -y filezilla
 fi
 
-if [[ $resposta =~ "o" ]]; then
+if [[ $resposta =~ "n" ]]; then
   # instalando dependências
   sudo apt-get install -y python-software-properties python g++ make
   # adicionando repositório
@@ -123,14 +116,14 @@ if [[ $resposta =~ "o" ]]; then
   echo 'export PATH=$HOME/.node/bin:$PATH' >> ~/.bashrc
 fi
 
-if [[ $resposta =~ "r" ]]; then
-    sudo apt-get install -y curl
-    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-    curl -sSL https://get.rvm.io | bash -s stable
+if [[ $resposta =~ "o" ]]; then
+  sudo npm install -g yo grunt-cli bower
 fi
 
 if [[ $resposta =~ "p" ]]; then
-  sudo npm install -g yo grunt-cli bower
+    sudo apt-get install -y curl
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    curl -sSL https://get.rvm.io | bash -s stable
 fi
 
 if [[ $resposta =~ "q" ]]; then
@@ -139,7 +132,7 @@ if [[ $resposta =~ "q" ]]; then
   sudo pip install virtualenvwrapper
 fi
 
-if [[ $resposta =~ "s" ]]; then
+if [[ $resposta =~ "r" ]]; then
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
   echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
   sudo apt-get update
