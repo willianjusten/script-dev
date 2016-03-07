@@ -29,6 +29,8 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "p" "RVM e Ruby"\
     FALSE "q" "Pip, Virtualenv e Virtualenvwrapper"\
     FALSE "r" "Spotify"\
+    FALSE "s" "Vagrant e VirtualBox e VagrantBox Ubuntu 14.04 64bits"\
+    FALSE "t" "Skype"\
     --separator=":" --width=750 --height=700)
 
 
@@ -137,6 +139,32 @@ if [[ $resposta =~ "r" ]]; then
   echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
   sudo apt-get update
   sudo apt-get install -y spotify-client
+fi
+
+if [[ $resposta =~ "s" ]]; then
+  sudo apt-get install -y virtualbox
+  sudo apt-get install -y vagrant
+  sudo apt-get install -y virtualbox-dkms.
+  sudo apt-get update
+  
+  mkdir ~/vagrantbox
+  cd ~/vagrantbox
+  echo '
+      # -*- mode: ruby -*-
+      # vi: set ft=ruby :
+      Vagrant.configure(2) do |config|
+        config.vm.box = "ubuntu/trusty64"
+        config.vm.network "private_network", ip: "192.168.2.2"
+      end
+
+  ' >> Vagrantfile
+  vagrant up
+fi
+
+if [[ $resposta =~ "t" ]]; then
+  sudo sh -c 'echo "deb http://archive.canonical.com/ubuntu trusty partner" >> /etc/apt/sources.list.d/canonical_partner.list'
+  sudo apt-get update
+  sudo apt-get install -y skype
 fi
 
 # removendo os pacotes não necessários
