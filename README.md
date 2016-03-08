@@ -12,7 +12,6 @@
   1. Terminator
   1. Sublime Text 3
   1. Brackets
-  1. Dropbox
   1. Mysql Workbench
   1. Lamp+phpmyadmin
   1. Google Chromium
@@ -24,6 +23,8 @@
   1. Pip, Virtualenv e Virtualenvwrapper
   1. RVM e Ruby
   1. Spotify
+  1. Virtual Box, Vagrant e VagrantBox c/ UbuntuTrusty 64bits
+  1. Skype Linux
 
 ## Instalação
 
