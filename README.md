@@ -25,6 +25,7 @@
   1. Spotify
   1. Virtual Box, Vagrant e VagrantBox c/ UbuntuTrusty 64bits
   1. Skype Linux
+  1. Mailcatcher (Requer configuração específica de linguagem - mailcatcher.me)
 
 ## Instalação
 
