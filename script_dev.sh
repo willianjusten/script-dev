@@ -31,8 +31,8 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "r" "Spotify"\
     FALSE "s" "Vagrant e VirtualBox e VagrantBox Ubuntu 14.04 64bits"\
     FALSE "t" "Skype"\
+    FALSE "u" "Mailcatcher"\
     --separator=":" --width=750 --height=700)
-
 
 if [[ $resposta =~ "a" ]]; then
     sudo apt-get -y install ubuntu-restricted-extras
@@ -165,6 +165,15 @@ if [[ $resposta =~ "t" ]]; then
   sudo sh -c 'echo "deb http://archive.canonical.com/ubuntu trusty partner" >> /etc/apt/sources.list.d/canonical_partner.list'
   sudo apt-get update
   sudo apt-get install -y skype
+fi
+
+if [[ $resposta =~ "u" ]]; then
+  sudo apt-get update
+  sudo apt-get install -y build-essential software-properties-common
+  sudo apt-get install -y libsqlite3-dev ruby1.9.1-dev
+  sudo gem install mailcatcher
+  mailcatcher
+  zenity --info --title "Mailcatcher" --text "Requer configuração para cada linguagem, veja em http://mailcatcher.me"
 fi
 
 # removendo os pacotes não necessários
