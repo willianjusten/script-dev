@@ -24,8 +24,10 @@
   1. RVM e Ruby
   1. Spotify
   1. Virtual Box, Vagrant e VagrantBox c/ UbuntuTrusty 64bits
+  1. Virtual Box e Vagrant s/ Vagrant Box
   1. Skype Linux
-  1. Mailcatcher (Requer configuração específica de linguagem - mailcatcher.me)
+  1. Mailcatcher (Requer configuração específica de linguagem - mailcatcher.me) 
+  1. Htop
 
 ## Instalação
 
