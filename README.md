@@ -2,6 +2,10 @@
 
 *Um script simples para instalar programas úteis que, em geral, nós programadores precisamos.*
 
+## Preview:
+
+![alt tag](https://raw.githubusercontent.com/hugocarreira/script-dev/master/script-dev.png)
+
 
 ## Lista de aplicativos:
 
