@@ -29,9 +29,11 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "p" "RVM e Ruby"\
     FALSE "q" "Pip, Virtualenv e Virtualenvwrapper"\
     FALSE "r" "Spotify"\
-    FALSE "s" "Vagrant e VirtualBox e VagrantBox Ubuntu 14.04 64bits"\
-    FALSE "t" "Skype"\
-    FALSE "u" "Mailcatcher"\
+    FALSE "s" "Vagrant e VirtualBox with VagrantBox Ubuntu 14.04 64bits"\
+    FALSE "t" "Vagrant e VirtualBox without VagrantBox"\
+    FALSE "u" "Skype"\
+    FALSE "v" "Mailcatcher"\
+    FALSE "x" "Htop"\
     --separator=":" --width=750 --height=700)
 
 if [[ $resposta =~ "a" ]]; then
@@ -142,10 +144,12 @@ if [[ $resposta =~ "r" ]]; then
 fi
 
 if [[ $resposta =~ "s" ]]; then
-  sudo apt-get install -y virtualbox
-  sudo apt-get install -y vagrant
-  sudo apt-get install -y virtualbox-dkms.
   sudo apt-get update
+  sudo apt-get install -y virtualbox
+  sudo apt-get install -y virtualbox-dkms
+  cd ~/Downloads
+  wget https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
+  sudo dpkg -i vagrant_1.8.1_x86_64.deb
   
   mkdir ~/vagrantbox
   cd ~/vagrantbox
@@ -162,18 +166,32 @@ if [[ $resposta =~ "s" ]]; then
 fi
 
 if [[ $resposta =~ "t" ]]; then
+  sudo apt-get update
+  sudo apt-get install -y virtualbox
+  sudo apt-get install -y virtualbox-dkms
+  cd ~/Downloads
+  wget https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
+  sudo dpkg -i vagrant_1.8.1_x86_64.deb
+fi
+
+if [[ $resposta =~ "u" ]]; then
   sudo sh -c 'echo "deb http://archive.canonical.com/ubuntu trusty partner" >> /etc/apt/sources.list.d/canonical_partner.list'
   sudo apt-get update
   sudo apt-get install -y skype
 fi
 
-if [[ $resposta =~ "u" ]]; then
+if [[ $resposta =~ "v" ]]; then
   sudo apt-get update
   sudo apt-get install -y build-essential software-properties-common
   sudo apt-get install -y libsqlite3-dev ruby1.9.1-dev
   sudo gem install mailcatcher
   mailcatcher
   zenity --info --title "Mailcatcher" --text "Requer configuração para cada linguagem, veja em http://mailcatcher.me"
+fi
+
+if [[ $resposta =~ "x" ]]; then
+  sudo apt-get update
+  sudo apt-get install -y htop
 fi
 
 # removendo os pacotes não necessários
