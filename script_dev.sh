@@ -11,73 +11,73 @@
 zenity --info --title "Script Web Development" --text "Este é um script simples para instalação de ferramentas úteis para Desenvolvimento Web e do ambiente do Ubuntu. \n\nCriado por: Willian Justen de Vasconcellos"
 
 resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --checklist  --column "Instalar" --column "Id" --column "Pacote"\
-    FALSE "a" "Restricted-Extras (Codecs de áudio e vídeo, plugin flash, java entre outros)"\
-    FALSE "b" "Gimp (Editor de Imagens)"\
-    FALSE "c" "Inkscape (Editor de Vetores)"\
-    FALSE "d" "Imagemagick (Editor de Imagens via Terminal)"\
-    FALSE "e" "Terminator"\
-    FALSE "f" "Sublime Text 3"\
-    FALSE "g" "Brackets"\
-    FALSE "h" "Mysql Workbench"\
-    FALSE "i" "Lamp+phpmyadmin"\
-    FALSE "j" "Google Chromium"\
-    FALSE "k" "Google Chrome"\
-    FALSE "l" "Git e Gitk"\
-    FALSE "m" "Filezilla"\
-    FALSE "n" "NodeJS"\
-    FALSE "o" "Yo / GruntJs / Bower (Requer NodeJS)"\
-    FALSE "p" "RVM e Ruby"\
-    FALSE "q" "Pip, Virtualenv e Virtualenvwrapper"\
-    FALSE "r" "Spotify"\
-    FALSE "s" "Vagrant e VirtualBox with VagrantBox Ubuntu 14.04 64bits"\
-    FALSE "t" "Vagrant e VirtualBox without VagrantBox"\
-    FALSE "u" "Skype"\
-    FALSE "v" "Mailcatcher"\
-    FALSE "x" "Htop"\
+    FALSE "1" "Restricted-Extras (Codecs de áudio e vídeo, plugin flash, java entre outros)"\
+    FALSE "2" "Gimp (Editor de Imagens)"\
+    FALSE "3" "Inkscape (Editor de Vetores)"\
+    FALSE "4" "Imagemagick (Editor de Imagens via Terminal)"\
+    FALSE "5" "Terminator"\
+    FALSE "6" "Sublime Text 3"\
+    FALSE "7" "Brackets"\
+    FALSE "8" "Mysql Workbench"\
+    FALSE "9" "Lamp+phpmyadmin"\
+    FALSE "10" "Google Chromium"\
+    FALSE "11" "Google Chrome"\
+    FALSE "12" "Git e Gitk"\
+    FALSE "13" "Filezilla"\
+    FALSE "14" "NodeJS"\
+    FALSE "15" "Yo / GruntJs / Bower (Requer NodeJS)"\
+    FALSE "16" "RVM e Ruby"\
+    FALSE "17" "Pip, Virtualenv e Virtualenvwrapper"\
+    FALSE "18" "Spotify"\
+    FALSE "19" "Vagrant e VirtualBox with VagrantBox Ubuntu 14.04 64bits"\
+    FALSE "20" "Vagrant e VirtualBox without VagrantBox"\
+    FALSE "21" "Skype"\
+    FALSE "22" "Mailcatcher"\
+    FALSE "23" "Htop"\
+    FALSE "24" "PopCornTime (Oficial)"\
     --separator=":" --width=750 --height=700)
 
-if [[ $resposta =~ "a" ]]; then
+if [[ $resposta =~ "1" ]]; then
     sudo apt-get -y install ubuntu-restricted-extras
 fi
 
-
-if [[ $resposta =~ "b" ]]; then
+if [[ $resposta =~ "2" ]]; then
     sudo apt-get -y install gimp
 fi
 
-if [[ $resposta =~ "c" ]]; then
+if [[ $resposta =~ "3" ]]; then
     sudo apt-get -y install inkscape
 fi
 
-if [[ $resposta =~ "d" ]]; then
+if [[ $resposta =~ "4" ]]; then
    sudo apt-get -y install imagemagick
 fi
 
-if [[ $resposta =~ "e" ]]; then
+if [[ $resposta =~ "5" ]]; then
     sudo add-apt-repository -y ppa:gnome-terminator
     sudo apt-get update
     sudo apt-get install terminator
 fi
 
-if [[ $resposta =~ "f" ]]; then
+if [[ $resposta =~ "6" ]]; then
   # adicionando repositório
   sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
   sudo apt-get update
   sudo apt-get -y install sublime-text-installer
 fi
 
-if [[ $resposta =~ "g" ]]; then
+if [[ $resposta =~ "7" ]]; then
   # adicionando repositório
   sudo add-apt-repository -y ppa:webupd8team/brackets
   sudo apt-get update
   sudo apt-get -y install brackets
 fi
 
-if [[ $resposta =~ "h" ]]; then
+if [[ $resposta =~ "8" ]]; then
    sudo apt-get -y install mysql-workbench
 fi
 
-if [[ $resposta =~ "i" ]]; then
+if [[ $resposta =~ "9" ]]; then
   # instalando lamp e phpmyadmin
   sudo apt-get -y install lamp-server^
   sudo apt-get -y install phpmyadmin
@@ -87,11 +87,11 @@ if [[ $resposta =~ "i" ]]; then
   sudo chmod -R 777 /var/www
 fi
 
-if [[ $resposta =~ "j" ]]; then
+if [[ $resposta =~ "10" ]]; then
    sudo apt-get -y install chromium-browser
 fi
 
-if [[ $resposta =~ "k" ]]; then
+if [[ $resposta =~ "11" ]]; then
   # baixando a chave do chrome para adicionar nas chaves de repositórios
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   # adicionando na lista de fontes
@@ -100,15 +100,15 @@ if [[ $resposta =~ "k" ]]; then
   sudo apt-get install -y google-chrome-stable
 fi
 
-if [[ $resposta =~ "l" ]]; then
+if [[ $resposta =~ "12" ]]; then
   sudo apt-get install -y git-core gitk
 fi
 
-if [[ $resposta =~ "m" ]]; then
+if [[ $resposta =~ "12" ]]; then
   sudo apt-get install -y filezilla
 fi
 
-if [[ $resposta =~ "n" ]]; then
+if [[ $resposta =~ "14" ]]; then
   # instalando dependências
   sudo apt-get install -y python-software-properties python g++ make
   # adicionando repositório
@@ -120,37 +120,37 @@ if [[ $resposta =~ "n" ]]; then
   echo 'export PATH=$HOME/.node/bin:$PATH' >> ~/.bashrc
 fi
 
-if [[ $resposta =~ "o" ]]; then
+if [[ $resposta =~ "15" ]]; then
   sudo npm install -g yo grunt-cli bower
 fi
 
-if [[ $resposta =~ "p" ]]; then
+if [[ $resposta =~ "16" ]]; then
     sudo apt-get install -y curl
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
     curl -sSL https://get.rvm.io | bash -s stable
 fi
 
-if [[ $resposta =~ "q" ]]; then
+if [[ $resposta =~ "17" ]]; then
   sudo apt-get install -y python-pip
   sudo pip install virtualenv
   sudo pip install virtualenvwrapper
 fi
 
-if [[ $resposta =~ "r" ]]; then
+if [[ $resposta =~ "18" ]]; then
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
   echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
   sudo apt-get update
   sudo apt-get install -y spotify-client
 fi
 
-if [[ $resposta =~ "s" ]]; then
+if [[ $resposta =~ "19" ]]; then
   sudo apt-get update
   sudo apt-get install -y virtualbox
   sudo apt-get install -y virtualbox-dkms
   cd ~/Downloads
   wget https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
   sudo dpkg -i vagrant_1.8.1_x86_64.deb
-  
+
   mkdir ~/vagrantbox
   cd ~/vagrantbox
   echo '
@@ -165,7 +165,7 @@ if [[ $resposta =~ "s" ]]; then
   vagrant up
 fi
 
-if [[ $resposta =~ "t" ]]; then
+if [[ $resposta =~ "20" ]]; then
   sudo apt-get update
   sudo apt-get install -y virtualbox
   sudo apt-get install -y virtualbox-dkms
@@ -174,13 +174,13 @@ if [[ $resposta =~ "t" ]]; then
   sudo dpkg -i vagrant_1.8.1_x86_64.deb
 fi
 
-if [[ $resposta =~ "u" ]]; then
+if [[ $resposta =~ "21" ]]; then
   sudo sh -c 'echo "deb http://archive.canonical.com/ubuntu trusty partner" >> /etc/apt/sources.list.d/canonical_partner.list'
   sudo apt-get update
   sudo apt-get install -y skype
 fi
 
-if [[ $resposta =~ "v" ]]; then
+if [[ $resposta =~ "22" ]]; then
   sudo apt-get update
   sudo apt-get install -y build-essential software-properties-common
   sudo apt-get install -y libsqlite3-dev ruby1.9.1-dev
@@ -189,9 +189,19 @@ if [[ $resposta =~ "v" ]]; then
   zenity --info --title "Mailcatcher" --text "Requer configuração para cada linguagem, veja em http://mailcatcher.me"
 fi
 
-if [[ $resposta =~ "x" ]]; then
+if [[ $resposta =~ "23" ]]; then
   sudo apt-get update
   sudo apt-get install -y htop
+fi
+
+if [[ $resposta =~ "24" ]]; then
+  cd /opt/
+  sudo wget https://ci.popcorntime.sh/job/Popcorn-Time-Desktop/lastSuccessfulBuild/artifact/Release/Popcorn-Time-Linux64.tar.xz
+  sudo tar -xJf Popcorn-Time-Linux64.tar.xz
+  sudo rm -f Popcorn-Time-Linux64.tar.xz
+  sudo mv linux64/ popcorntime/
+  # Create Symbolic Link
+  sudo ln -s /opt/popcorntime/Popcorn-Time /usr/bin/popcorntime
 fi
 
 # removendo os pacotes não necessários
