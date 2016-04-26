@@ -4,7 +4,7 @@
 
 ## Preview:
 
-![alt tag](https://raw.githubusercontent.com/hugocarreira/script-dev/master/script-dev.png)
+![alt tag](https://raw.githubusercontent.com/hugocarreira/script-dev/master/image.png)
 
 
 ## Lista de aplicativos:
