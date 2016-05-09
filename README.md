@@ -1,50 +1,37 @@
 # Script Web Linux - Debian Based
 
-*Um script simples para instalar programas úteis que, em geral, nós programadores precisamos.*
+*Um script simples para instalar programas úteis que, em geral, nós programadores (entre outros usuários) necessitamos.*
 
 ## Preview:
 
-![alt tag](https://raw.githubusercontent.com/hugocarreira/script-dev/master/image.png)
+![alt tag](https://raw.githubusercontent.com/willianjusten/script-dev/master/image.png)
 
 
 ## Lista de aplicativos:
 
-  1. Restricted-Extras (Codecs de áudio e vídeo)
-  1. Gimp
-  1. Inkscape
-  1. Imagemagick
-  1. Terminator
-  1. Sublime Text 3
-  1. Brackets
-  1. Mysql Workbench
-  1. Lamp+phpmyadmin
-  1. Google Chromium
-  1. Google Chrome
-  1. Git e Gitk
-  1. Filezilla
-  1. NodeJS
-  1. Yo / GruntJS / Bower (Requer NodeJS)
-  1. Pip, Virtualenv e Virtualenvwrapper
-  1. RVM e Ruby
-  1. Spotify
-  1. Virtual Box, Vagrant e VagrantBox c/ UbuntuTrusty 64bits
-  1. Virtual Box e Vagrant s/ Vagrant Box
-  1. Skype Linux
-  1. Mailcatcher (Requer configuração específica de linguagem - mailcatcher.me) 
-  1. Htop
+[Visualizar lista de aplicativos](https://github.com/willianjusten/script-dev/blob/master/APPLICATIONS.md)
 
 ## Instalação
 
-Baixe o script, vá até a pasta onde se encontra e dê as permissões para ele.
+Clone o projeto
 
-```sh
-chmod +x script_dev.sh
-```
+    git clone git@github.com:willianjusten/script-dev.git
+
+Acesse o diretório e adicione a permissão de execução por meio do comando abaixo.
+
+    chmod +x script_dev.sh
+
 
 Após isso, execute o arquivo:
 
-```sh
-./script_dev.sh
-```
+    ./script_dev.sh
 
 Bom, é basicamente isso, foi feito bem simples e prático. Aceito sugestões =)
+
+## Contribuições
+
+1. Fork o projeto ( `git@github.com:willianjusten/script-dev.git`)
+2. Crie seu branch (`git checkout -b my-new-feature`)
+3. Commit suas alterações (`git commit -am 'Add some feature'`)
+4. Push seu branch (`git push origin my-new-feature`)
+5. Crie um novo Pull Request
