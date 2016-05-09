@@ -34,7 +34,6 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "21" "Skype"\
     FALSE "22" "Mailcatcher"\
     FALSE "23" "Htop"\
-    FALSE "24" "PopCornTime (Oficial)"\
     --separator=":" --width=750 --height=700)
 
 if [[ $resposta =~ "1" ]]; then
@@ -192,16 +191,6 @@ fi
 if [[ $resposta =~ "23" ]]; then
   sudo apt-get update
   sudo apt-get install -y htop
-fi
-
-if [[ $resposta =~ "24" ]]; then
-  cd /opt/
-  sudo wget https://ci.popcorntime.sh/job/Popcorn-Time-Desktop/lastSuccessfulBuild/artifact/Release/Popcorn-Time-Linux64.tar.xz
-  sudo tar -xJf Popcorn-Time-Linux64.tar.xz
-  sudo rm -f Popcorn-Time-Linux64.tar.xz
-  sudo mv linux64/ popcorntime/
-  # Create Symbolic Link
-  sudo ln -s /opt/popcorntime/Popcorn-Time /usr/bin/popcorntime
 fi
 
 # removendo os pacotes não necessários
