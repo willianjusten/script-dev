@@ -36,8 +36,9 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "23" "Htop"\
     FALSE "24" "PopCornTime (Oficial)"\
     FALSE "25" "Oracle Java JDK"\
-    FALSE "26" "Pacotes essenciais de compilação"\
-    FALSE "27" "Compactadores de arquivos"\
+    FALSE "26" "Pacotes Essenciais de Compilação"\
+    FALSE "27" "Compactadores de Arquivos"\
+    FALSE "28" "ZSH Terminal e Prezto config framework"\
     --separator=":" --width=750 --height=700)
 
 if [[ $resposta =~ "1" ]]; then
@@ -241,8 +242,23 @@ if [[ $resposta =~ "26" ]]; then
 fi
 
 if [[ $resposta =~ "27" ]]; then
-  #Install File Compression Libs
-  sudo apt-get -y install p7zip p7zip-full p7zip-rar unrar rar unace-nonfree 
+  # Instalar compactadores de arquivos
+  sudo apt-get -y install p7zip p7zip-full p7zip-rar unrar rar unace-nonfree
+fi
+
+if [[ $resposta =~ "28" ]]; then
+  # Instalar zsh e prezto
+  sudo apt-get -y install zsh
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+  ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+  ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+  ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
+  ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+  ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc
+  chsh -s /usr/bin/zsh
+  echo "Abra uma nova aba no terminal para começar a utilizar o zsh"
+  echo "Temas e outras configurações podem ser adicionados no arquivo .zpreztorc"
 fi
 
 # removendo os pacotes não necessários
