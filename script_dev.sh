@@ -22,7 +22,7 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "9" "Lamp+phpmyadmin"\
     FALSE "10" "Google Chromium"\
     FALSE "11" "Google Chrome"\
-    FALSE "12" "Git e Gitk"\
+    FALSE "12" "Git, Gitk e Tig"\
     FALSE "13" "Filezilla"\
     FALSE "14" "NodeJS"\
     FALSE "15" "Yo / GruntJs / Bower (Requer NodeJS)"\
@@ -102,7 +102,7 @@ if [[ $resposta =~ "11" ]]; then
 fi
 
 if [[ $resposta =~ "12" ]]; then
-  sudo apt-get install -y git-core gitk
+  sudo apt-get install -y git-core gitk tig
 fi
 
 if [[ $resposta =~ "12" ]]; then
