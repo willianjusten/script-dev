@@ -193,6 +193,33 @@ if [[ $resposta =~ "23" ]]; then
   sudo apt-get install -y htop
 fi
 
+if [[ $resposta =~ "24" ]]; then
+  cd /opt/
+  sudo wget https://ci.popcorntime.sh/job/Popcorn-Time-Desktop/lastSuccessfulBuild/artifact/Release/Popcorn-Time-Linux64.tar.xz
+  sudo tar -xJf Popcorn-Time-Linux64.tar.xz
+  sudo rm -f Popcorn-Time-Linux64.tar.xz
+  sudo mv linux64/ popcorntime/
+  # Create Symbolic Link
+  sudo ln -s /opt/popcorntime/Popcorn-Time /usr/bin/popcorntime
+
+  # Create Desktop Entry
+  desktop=popcorntime.desktop
+  echo "[Desktop Entry]" > $desktop
+  echo "Name=Popcorn Time" >> $desktop
+  echo "GenericName=Media Player" >> $desktop
+  echo "Version=0.3.9-0" >> $desktop
+  echo "Type=Application" >> $desktop
+  echo "Categories=AudioVideo;Player;" >> $desktop
+  echo "Icon=/opt/popcorntime/src/app/images/icon.png" >> $desktop
+  echo "Exec=/usr/bin/popcorntime" >> $desktop
+  echo "Comment=Popcorn Time Official" >> $desktop
+  echo "Terminal=false" >> $desktop
+  echo "Keywords=Player;Video;Internet;Stream" >> $desktop
+
+  # Move .desktop file to /usr/share/applications
+  sudo mv popcorntime.desktop /usr/share/applications/
+fi
+
 # removendo os pacotes não necessários
 sudo apt-get autoremove
 
