@@ -34,6 +34,8 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "21" "Skype"\
     FALSE "22" "Mailcatcher"\
     FALSE "23" "Htop"\
+    FALSE "24" "PopCornTime (Oficial)"\
+    FALSE "25" "Oracle Java JDK"\
     --separator=":" --width=750 --height=700)
 
 if [[ $resposta =~ "1" ]]; then
@@ -218,6 +220,17 @@ if [[ $resposta =~ "24" ]]; then
 
   # Move .desktop file to /usr/share/applications
   sudo mv popcorntime.desktop /usr/share/applications/
+fi
+
+if [[ $resposta =~ "25" ]]; then
+  sudo add-apt-repository ppa:webupd8team/java -y
+  sudo apt-get update
+  # Install oracle java 7
+  sudo apt-get -y install oracle-java7-installer
+  sudo update-java-alternatives -s java-7-oracle
+  sudo apt-get -y install oracle-java7-set-default
+  # Remove openjdk
+  sudo apt-get -y purge openjdk-7-jre openjdk-7-jre-lib openjdk-7-jre-headless
 fi
 
 # removendo os pacotes não necessários
