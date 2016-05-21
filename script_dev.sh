@@ -36,6 +36,8 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "23" "Htop"\
     FALSE "24" "PopCornTime (Oficial)"\
     FALSE "25" "Oracle Java JDK"\
+    FALSE "26" "Pacotes essenciais de compilação"\
+    FALSE "27" "Compactadores de arquivos"\
     --separator=":" --width=750 --height=700)
 
 if [[ $resposta =~ "1" ]]; then
@@ -231,6 +233,16 @@ if [[ $resposta =~ "25" ]]; then
   sudo apt-get -y install oracle-java7-set-default
   # Remove openjdk
   sudo apt-get -y purge openjdk-7-jre openjdk-7-jre-lib openjdk-7-jre-headless
+fi
+
+if [[ $resposta =~ "26" ]]; then
+  # Pacotes essenciais de compilacao
+  sudo apt-get -y install build-essential checkinstall cdbs devscripts dh-make make fakeroot libxml-parser-perl check avahi-daemon curl vim
+fi
+
+if [[ $resposta =~ "27" ]]; then
+  #Install File Compression Libs
+  sudo apt-get -y install p7zip p7zip-full p7zip-rar unrar rar unace-nonfree 
 fi
 
 # removendo os pacotes não necessários
