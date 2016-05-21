@@ -39,6 +39,7 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "26" "Pacotes Essenciais de Compilação"\
     FALSE "27" "Compactadores de Arquivos"\
     FALSE "28" "ZSH Terminal e Prezto config framework"\
+    FALSE "29" "Tema de Icones Faenza e Faience"\
     --separator=":" --width=750 --height=700)
 
 if [[ $resposta =~ "1" ]]; then
@@ -226,7 +227,7 @@ if [[ $resposta =~ "24" ]]; then
 fi
 
 if [[ $resposta =~ "25" ]]; then
-  sudo add-apt-repository ppa:webupd8team/java -y
+  sudo add-apt-repository -y ppa:webupd8team/java
   sudo apt-get update
   # Install oracle java 7
   sudo apt-get -y install oracle-java7-installer
@@ -259,6 +260,14 @@ if [[ $resposta =~ "28" ]]; then
   chsh -s /usr/bin/zsh
   echo "Abra uma nova aba no terminal para começar a utilizar o zsh"
   echo "Temas e outras configurações podem ser adicionados no arquivo .zpreztorc"
+fi
+
+if [[ $resposta =~ "29" ]]; then
+  # Instalar icones Faenza e Faience
+  sudo add-apt-repository -y ppa:noobslab/icons
+  sudo apt-get update
+  sudo apt-get -y install faenza-icon-theme
+  sudo apt-get -y install faience-icon-theme
 fi
 
 # removendo os pacotes não necessários
