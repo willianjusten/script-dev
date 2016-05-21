@@ -24,3 +24,8 @@
 1. Mailcatcher (Requer configuração específica de linguagem - mailcatcher.me)
 1. Htop
 1. Popcorntime (Oficial)
+1. Oracle Java JDK
+1. Pacotes Essenciais de Compilação
+1. Compactadores de Arquivos
+1. ZSH Terminal e Prezto
+1. Tema de Icones Faenza e Faience
