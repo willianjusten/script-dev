@@ -29,3 +29,5 @@
 1. Compactadores de Arquivos
 1. ZSH Terminal e Prezto
 1. Tema de Icones Faenza e Faience
+1. PySide Dev Tools
+1. PyQt Dev Tools

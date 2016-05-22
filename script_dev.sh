@@ -40,6 +40,8 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "27" "Compactadores de Arquivos"\
     FALSE "28" "ZSH Terminal e Prezto config framework"\
     FALSE "29" "Tema de Icones Faenza e Faience"\
+    FALSE "30" "PySide Dev Tools"\
+    FALSE "31" "PyQt Dev Tools"\
     --separator=":" --width=750 --height=700)
 
 if [[ $resposta =~ "1" ]]; then
@@ -248,6 +250,16 @@ if [[ $resposta =~ "29" ]]; then
   sudo apt-get update
   sudo apt-get -y install faenza-icon-theme
   sudo apt-get -y install faience-icon-theme
+fi
+
+if [[ $resposta =~ "30" ]]; then
+  # Instalar icones Faenza e Faience
+  sudo apt-get -y install python-pyside pyside-tools qt4-designer qt4-linguist-tools qt4-dev-tools libqt4-sql-sqlite
+fi
+
+if [[ $resposta =~ "31" ]]; then
+  # Instalar icones Faenza e Faience
+  sudo apt-get -y install python-qt4-dev pyqt4-dev-tools qt4-designer qt4-linguist-tools qt4-dev-tools libqt4-sql-sqlite
 fi
 
 # removendo os pacotes não necessários
