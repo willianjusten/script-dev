@@ -23,7 +23,7 @@
 1. Skype Linux
 1. Mailcatcher (Requer configuração específica de linguagem - mailcatcher.me)
 1. Htop
-1. Popcorntime (Oficial)
+1. Atom
 1. Oracle Java JDK
 1. Pacotes Essenciais de Compilação
 1. Compactadores de Arquivos

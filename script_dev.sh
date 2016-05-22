@@ -34,7 +34,7 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "21" "Skype"\
     FALSE "22" "Mailcatcher"\
     FALSE "23" "Htop"\
-    FALSE "24" "PopCornTime (Oficial)"\
+    FALSE "24" "Atom"\
     FALSE "25" "Oracle Java JDK"\
     FALSE "26" "Pacotes Essenciais de Compilação"\
     FALSE "27" "Compactadores de Arquivos"\
@@ -200,30 +200,10 @@ if [[ $resposta =~ "23" ]]; then
 fi
 
 if [[ $resposta =~ "24" ]]; then
-  cd /opt/
-  sudo wget https://ci.popcorntime.sh/job/Popcorn-Time-Desktop/lastSuccessfulBuild/artifact/Release/Popcorn-Time-Linux64.tar.xz
-  sudo tar -xJf Popcorn-Time-Linux64.tar.xz
-  sudo rm -f Popcorn-Time-Linux64.tar.xz
-  sudo mv linux64/ popcorntime/
-  # Create Symbolic Link
-  sudo ln -s /opt/popcorntime/Popcorn-Time /usr/bin/popcorntime
-
-  # Create Desktop Entry
-  desktop=popcorntime.desktop
-  echo "[Desktop Entry]" > $desktop
-  echo "Name=Popcorn Time" >> $desktop
-  echo "GenericName=Media Player" >> $desktop
-  echo "Version=0.3.9-0" >> $desktop
-  echo "Type=Application" >> $desktop
-  echo "Categories=AudioVideo;Player;" >> $desktop
-  echo "Icon=/opt/popcorntime/src/app/images/icon.png" >> $desktop
-  echo "Exec=/usr/bin/popcorntime" >> $desktop
-  echo "Comment=Popcorn Time Official" >> $desktop
-  echo "Terminal=false" >> $desktop
-  echo "Keywords=Player;Video;Internet;Stream" >> $desktop
-
-  # Move .desktop file to /usr/share/applications
-  sudo mv popcorntime.desktop /usr/share/applications/
+  # Install atom editor
+  sudo add-apt-repository -y ppa:webupd8team/atom
+  sudo apt-get update
+  sudo apt-get -y install atom
 fi
 
 if [[ $resposta =~ "25" ]]; then
