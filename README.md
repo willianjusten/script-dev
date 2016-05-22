@@ -4,7 +4,7 @@
 
 ## Preview:
 
-![alt tag](https://raw.githubusercontent.com/willianjusten/script-dev/master/image.png)
+![alt tag](image.png)
 
 
 ## Lista de aplicativos:

@@ -22,7 +22,7 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "9" "Lamp+phpmyadmin"\
     FALSE "10" "Google Chromium"\
     FALSE "11" "Google Chrome"\
-    FALSE "12" "Git e Gitk"\
+    FALSE "12" "Git, Gitk e Tig"\
     FALSE "13" "Filezilla"\
     FALSE "14" "NodeJS"\
     FALSE "15" "Yo / GruntJs / Bower (Requer NodeJS)"\
@@ -34,6 +34,14 @@ resposta=$(zenity  --list  --text "Escolha os pacotes que deseja instalar." --ch
     FALSE "21" "Skype"\
     FALSE "22" "Mailcatcher"\
     FALSE "23" "Htop"\
+    FALSE "24" "Atom"\
+    FALSE "25" "Oracle Java JDK"\
+    FALSE "26" "Pacotes Essenciais de Compilação"\
+    FALSE "27" "Compactadores de Arquivos"\
+    FALSE "28" "ZSH Terminal e Prezto config framework"\
+    FALSE "29" "Tema de Icones Faenza e Faience"\
+    FALSE "30" "PySide Dev Tools"\
+    FALSE "31" "PyQt Dev Tools"\
     --separator=":" --width=750 --height=700)
 
 if [[ $resposta =~ "1" ]]; then
@@ -100,7 +108,7 @@ if [[ $resposta =~ "11" ]]; then
 fi
 
 if [[ $resposta =~ "12" ]]; then
-  sudo apt-get install -y git-core gitk
+  sudo apt-get install -y git-core gitk tig
 fi
 
 if [[ $resposta =~ "12" ]]; then
@@ -191,6 +199,67 @@ fi
 if [[ $resposta =~ "23" ]]; then
   sudo apt-get update
   sudo apt-get install -y htop
+fi
+
+if [[ $resposta =~ "24" ]]; then
+  # Install atom editor
+  sudo add-apt-repository -y ppa:webupd8team/atom
+  sudo apt-get update
+  sudo apt-get -y install atom
+fi
+
+if [[ $resposta =~ "25" ]]; then
+  sudo add-apt-repository -y ppa:webupd8team/java
+  sudo apt-get update
+  # Install oracle java 7
+  sudo apt-get -y install oracle-java7-installer
+  sudo update-java-alternatives -s java-7-oracle
+  sudo apt-get -y install oracle-java7-set-default
+  # Remove openjdk
+  sudo apt-get -y purge openjdk-7-jre openjdk-7-jre-lib openjdk-7-jre-headless
+fi
+
+if [[ $resposta =~ "26" ]]; then
+  # Pacotes essenciais de compilacao
+  sudo apt-get -y install build-essential checkinstall cdbs devscripts dh-make make fakeroot libxml-parser-perl check avahi-daemon curl vim
+fi
+
+if [[ $resposta =~ "27" ]]; then
+  # Instalar compactadores de arquivos
+  sudo apt-get -y install p7zip p7zip-full p7zip-rar unrar rar unace-nonfree
+fi
+
+if [[ $resposta =~ "28" ]]; then
+  # Instalar zsh e prezto
+  sudo apt-get -y install zsh
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+  ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+  ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+  ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
+  ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+  ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc
+  chsh -s /usr/bin/zsh
+  echo "Abra uma nova aba no terminal para começar a utilizar o zsh"
+  echo "Temas e outras configurações podem ser adicionados no arquivo .zpreztorc"
+fi
+
+if [[ $resposta =~ "29" ]]; then
+  # Instalar icones Faenza e Faience
+  sudo add-apt-repository -y ppa:noobslab/icons
+  sudo apt-get update
+  sudo apt-get -y install faenza-icon-theme
+  sudo apt-get -y install faience-icon-theme
+fi
+
+if [[ $resposta =~ "30" ]]; then
+  # Instalar icones Faenza e Faience
+  sudo apt-get -y install python-pyside pyside-tools qt4-designer qt4-linguist-tools qt4-dev-tools libqt4-sql-sqlite
+fi
+
+if [[ $resposta =~ "31" ]]; then
+  # Instalar icones Faenza e Faience
+  sudo apt-get -y install python-qt4-dev pyqt4-dev-tools qt4-designer qt4-linguist-tools qt4-dev-tools libqt4-sql-sqlite
 fi
 
 # removendo os pacotes não necessários
